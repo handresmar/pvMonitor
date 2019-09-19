@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/pv-db-app',{
+mongoose.connect('mongodb://127.0.0.1:27017/pv-db-app',{
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: false
