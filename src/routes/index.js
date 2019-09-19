@@ -22,5 +22,7 @@ router.get('/bases', (req, res) => {
 });
 
 
-
+router.get('/bases/nasa', (req, res) => {
+    
+});
 module.exports = router;
