@@ -1,0 +1,33 @@
+{
+  "name": "pvMonitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src",
+    "dev": "nodemon src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/handresmar/pvMonitor.git"
+  },
+  "keywords": [],
+  "author": "HAMD (hugamartinezdia@unal.edu.co)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/handresmar/pvProject/issues"
+  },
+  "homepage": "https://github.com/handresmar/pvProject#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.7.1",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
