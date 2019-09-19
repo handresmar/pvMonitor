@@ -4,9 +4,11 @@ const path = require('path'); //gestor de rutas
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 
+
 //initialization
-const app = express(); // aplicación
+const app = express();
 require('./database');
+
 
 //settings
 app.set('port',process.env.PORT || 3000);
@@ -31,7 +33,15 @@ app.use(require('./routes/index'));
 //static files
 app.use(express.static(path.join(__dirname,'public')));
 
-//listening the server
-app.listen(app.get('port'), () =>{
+//start the server
+const server = app.listen(app.get('port'), () =>{
     console.log('server in port', app.get('port'));
+});
+
+//webSockets
+const SocketIO =require('socket.io');
+const io = SocketIO.listen(server);
+
+io.on('connection', (socket) => {
+    console.log('new connection', socket.id);
 });

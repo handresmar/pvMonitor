@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Datanasa = require('../models/nasa');
 
 router.get('/', (req, res) => {
     //console.log(router);
@@ -22,7 +23,11 @@ router.get('/bases', (req, res) => {
 });
 
 
-router.get('/bases/nasa', (req, res) => {
-    
+router.post('/bases/nasa',  async (req, res) => {
+    const datanasa = new Datanasa(req.body);
+    console.log(req.body);
+    await datanasa.save();
 });
+
+
 module.exports = router;

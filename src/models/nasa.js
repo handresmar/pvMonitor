@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const DatanasaSchema= new Schema({
+const DataNasaSchema= new Schema({
     mgntd: String,
     vlr: Number,
-    date: Date
+    date: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('datanasa',DatanasaSchema);
+module.exports = mongoose.model('datanasa',DataNasaSchema);
