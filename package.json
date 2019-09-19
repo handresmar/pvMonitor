@@ -15,9 +15,9 @@
   "author": "HAMD (hugamartinezdia@unal.edu.co)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/handresmar/pvProject/issues"
+    "url": "https://github.com/handresmar/pvMonitor/issues"
   },
-  "homepage": "https://github.com/handresmar/pvProject#readme",
+  "homepage": "https://github.com/handresmar/pvMonitor#readme",
   "devDependencies": {
     "nodemon": "^1.19.2"
   },
