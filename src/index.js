@@ -6,8 +6,8 @@ const methodOverride = require('method-override');
 
 
 //initialization
-const app = express();
-require('./database');
+const app = express(); //servidor
+require('./database'); //base de datos
 
 
 //settings
@@ -42,6 +42,4 @@ const server = app.listen(app.get('port'), () =>{
 const SocketIO =require('socket.io');
 const io = SocketIO.listen(server);
 
-io.on('connection', (socket) => {
-    console.log('new connection', socket.id);
-});
+require('./sockets')(io);

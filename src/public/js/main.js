@@ -1,1 +1,5 @@
-const socket =io()
+(function(){
+    const socket = io()
+    
+}())
+
