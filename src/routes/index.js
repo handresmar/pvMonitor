@@ -21,6 +21,4 @@ router.get('/bases', (req, res) => {
     res.render('bases', { title: 'Bases de Datos' });
 });
 
-
-
 module.exports = router;
