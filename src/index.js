@@ -35,11 +35,11 @@ app.use(express.static(path.join(__dirname,'public')));
 
 //start the server
 const server = app.listen(app.get('port'), () =>{
-    console.log('server in port', app.get('port'));
+    console.log('server on port', app.get('port'));
 });
 
 //webSockets
 const SocketIO =require('socket.io');
 const io = SocketIO.listen(server);
 
-require('./sockets')(io);
+require('./routes/sockets')(io);
