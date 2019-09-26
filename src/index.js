@@ -1,9 +1,9 @@
-//console.log('Server running');
 const express = require('express'); //gestor de servidor
 const path = require('path'); //gestor de rutas
-const exphbs = require('express-handlebars');
-const methodOverride = require('method-override');
+const exphbs = require('express-handlebars'); //gestor de plantillas
+const methodOverride = require('method-override'); 
 
+//console.log('Server running');
 
 //initialization
 const app = express(); //servidor
@@ -41,5 +41,15 @@ const server = app.listen(app.get('port'), () =>{
 //webSockets
 const SocketIO =require('socket.io');
 const io = SocketIO.listen(server);
-
 require('./routes/sockets')(io);
+
+// node-cron
+rut = require('./routines');
+const cron = require('node-cron');
+cron.schedule('*/10 * * * * *',() =>{
+    
+    
+});
+cron.schedule(' */15 * * * *',() =>{
+    rut.weather();    
+});

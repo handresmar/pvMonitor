@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Datanasa = require('../models/nasa');
 
+const Datanasa = require('../models/nasa');
 const io = require('socket.io-client');
 const socket = io('http://localhost:3000');
 
