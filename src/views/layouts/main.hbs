@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> {{{title}}}</title>
+    <title > Principal</title>
+    
+    <!--webSocket-->
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+
     <!--Font Aweson icons-->
     <script src="https://kit.fontawesome.com/7a8b310ce4.js"></script>
+
     <!--CSS estilos-->
     <link rel="stylesheet" href="/css/estilos.css">
+    <!--  -->
 </head>
 
 <body>
@@ -17,16 +23,16 @@
 
         <!--Navegacion-->
         <nav class="main-nav">
-            <div class="div-logo"><img src="/img/logo.png" class="logo" alt="Logo LIAT-ER" height="80" width="80"></div>
+            <div class="div-logo"><img src="/img/logo.png" class="logo" alt="Logo LIAT-ER" height="200"></div>
             
             <ul>
-                    <li> <a href="/"> <i class="fas fa-charging-station fa-lg"></i> Inicio</a></li>
-                    <li> <a href="/estacion"> <i class="fas fa-cloud-sun fa-lg"></i> Estación meteorológica</a></li>
-                    <li> <a href="/plantas"> <i class="fas fa-solar-panel fa-lg"></i> Plantas</a></li>
-                    <li> <a href="/bases">  <i class="fas fa-network-wired fa-lg"></i> Bases externas</a></li>
+                    <li> <a href="/#" id="indexNav"> <i class="fas fa-charging-station fa-lg"></i> Inicio</a></li>
+                    <li> <a href="/#" id="estacionNav"> <i class="fas fa-cloud-sun fa-lg"></i> Estación meteorológica</a></li>
+                    <li> <a href="/#" id="plantasNav"> <i class="fas fa-solar-panel fa-lg"></i> Plantas</a></li>
+                    <li> <a href="/#" id="basesNav">  <i class="fas fa-network-wired fa-lg"></i> Bases externas</a></li>
             </ul>
         </nav>
-
+    
         {{{body}}}
 
         <!--Footer-->
@@ -37,6 +43,7 @@
 
         <!--Wraper ends-->
     </div>
-
+    <!--js-->
+    <script src="/js/main.js" charset="utf-8"></script>
 </body>
 </html>
