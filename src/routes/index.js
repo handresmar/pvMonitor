@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.post('/bases/nasa',  async (req, res) => {
     const datanasa = new Datanasa(req.body);
     await datanasa.save();
+    res.status(200).json({status:"received"});
     //console.log(process.env.PORT);
     socket.emit('newData',datanasa.vlr);
 });

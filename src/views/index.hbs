@@ -1,57 +1,19 @@
-<!-- Indice -->
+<!-- summary -->
 <div id="index">
-    <!--Cajas resumen-->
-    <section class="boxes">
-        <!--Caja 1-->
-        <div class="power">
-            <h3 class="uni">Potencia [kW]</h3>
-            <hr/>
-            <i class="ico fas fa-power-off fa-3x" style="color:#86DF83"></i>
-            <h2 class="vl">123,12</h2>
-        </div>
-        <!--Caja 2-->
-        <div class="energy">
-                <h3 class="uni">Energía [kWh]</h3>
-                <hr/>
-                <i class="ico fas fa-bolt fa-3x" style="color: #EEFF00"></i>
-                <h2 class="vl">123,321</h2>
-        </div>
-        <!--Caja 3-->
-        <div class="irradiance">
-                <h3 class="uni">Irradiancia [W/m²]</h3>
-                <hr/>
-                <i class="ico fas fa-sun fa-3x" style="color: #FFD500"></i>
-                <h2 class="vl" id='irr-val'></h2>
-        </div>
-    </section>
-    <!--graficas-->
-    <section class="plots">
-        <canvas id="myCanvas" width="100" height="400"></canvas>
-    </section>
+    {{> summ}}
 </div>
 
 <!-- Plantas -->
 <div id="plantas">
-    <h1>plantas</h1>
+    {{> plantas}}
 </div>
 
 <!-- Estacion -->
 <div id="estacion">
-    <h1>estacion</h1>
+    {{> estacion}}
 </div>
 
 <!-- Bases -->
 <div id="bases">
-        <div class="weather">
-                <h3 class="uni">Tiempo Acutal</h3>
-                <hr/>
-                <h2 class="vl">Temperatura</h2>
-                <h2 class="vl" id='weaTemp'></h2>
-                <h2 class="vl">Humedad</h2>
-                <h2 class="vl" id='weaHum'></h2>
-                <h2 class="vl">Presion</h2>
-                <h2 class="vl" id='weaPres'></h2>
-                <h2 class="vl">Hora</h2>
-                <h2 class="vl" id='weaDate'></h2>
-        </div>
+    {{> bases}}
 </div>

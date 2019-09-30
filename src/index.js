@@ -22,7 +22,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine','.hbs');
 
 //middlewares 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 
@@ -43,13 +43,20 @@ const SocketIO =require('socket.io');
 const io = SocketIO.listen(server);
 require('./routes/sockets')(io);
 
-// node-cron
-rut = require('./routines');
+// node-cron ('*sec *min *hour *dayMonth *month *dayWeek')
+rutine = require('./routines');
 const cron = require('node-cron');
-cron.schedule('*/10 * * * * *',() =>{
-    
-    
+
+cron.schedule('*/15 * * * *',() =>{
+    rutine.weather();    
 });
-cron.schedule(' */15 * * * *',() =>{
-    rut.weather();    
+/*
+let t=0;
+cron.schedule('* /5 * * * * *',() =>{
+    t=t+5;
+    console.log('cinco');
+    if(t==15){console.log('quince')};
+    if(t==15){t=0}
 });
+*/
+
