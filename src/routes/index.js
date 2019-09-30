@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/bases/nasa',  async (req, res) => {
     const datanasa = new Datanasa(req.body);
     await datanasa.save();
-    res.status(200).json({status:"received"});
+    //res.status(200).json({status:"received"});
     //console.log(process.env.PORT);
     socket.emit('newData',datanasa.vlr);
 });
@@ -35,9 +35,5 @@ router.get('/plantas', (req, res) => {
 router.get('/bases', (req, res) => {
     res.render('bases');
 });
-<<<<<<< HEAD
 
-module.exports = router;
-=======
-*/
->>>>>>> nsDb
+module.exports = router;*/
