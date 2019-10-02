@@ -2,7 +2,6 @@ const express = require('express'); //gestor de servidor
 const path = require('path'); //gestor de rutas
 const exphbs = require('express-handlebars'); //gestor de plantillas
 const methodOverride = require('method-override'); 
-
 //console.log('Server running');
 
 //initialization

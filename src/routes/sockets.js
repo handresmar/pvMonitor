@@ -4,7 +4,7 @@ const Datanasa = require('../models/nasa');
 module.exports = function(io){
     io.on('connection', async (socket) => {
         console.log('new connection', socket.id);
-        let dataWeather =  await DataWeather.find().sort({ _id: -1 }).limit(1);
+        let dataWeather =  await DataWeather.find().sort({ _id: -1, }).limit(20);
         //console.log(data);
         socket.emit('onConnect',dataWeather);
         socket.on('newData', (data) => {

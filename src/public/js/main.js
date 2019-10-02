@@ -1,5 +1,5 @@
 (function(){
-    const socket = io();
+    
   /* ---------------- navegacion ----------------------*/  
     //variables
     var indexNav=document.getElementById('indexNav'),
@@ -12,12 +12,7 @@
         plantas=document.getElementById('plantas');
         bases=document.getElementById('bases');
 
-    let irr = document.getElementById('irr-val');
 
-    let weaTemp=document.getElementById('weaTemp');
-    let weaHum=document.getElementById('weaHum');
-    let weaPres=document.getElementById('weaPres');
-    let weaDate=document.getElementById('weaDate');
     
 
     
@@ -67,17 +62,4 @@
     plantasNav.addEventListener('click',plan);
     basesNav.addEventListener('click',bas);
      
-  /* ---------------- sockets ----------------------*/ 
-        
-  socket.on('onConnect', function(data){
-        console.log(data);
-        temp=data[0].temp.toString()+',0';
-        irr.innerHTML=temp;
-        weaTemp.innerHTML=data[0].temp;
-        weaHum.innerHTML=data[0].humidity;
-        weaPres.innerHTML=data[0].pressure;
-        let date= new Date(data[0].date);
-        weaDate.innerHTML=date.toLocaleString('es-CO');
-  }); 
-
 }())
