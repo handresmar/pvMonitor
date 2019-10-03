@@ -1,16 +1,23 @@
 const express = require('express');
 const router = express.Router();
 
+
+router.get('/', (req, res) => {
+
+    res.render('index');
+    //console.log(router);
+    //res.sendFile(path.join(__dirname, '/views/index.ejs'));
+});
+
+
+module.exports = router;
+
+
+/*
+------------------------------------------------
 const Datanasa = require('../models/nasa');
 const io = require('socket.io-client');
 const socket = io('http://localhost:3000');
-
-router.get('/', (req, res) => {
-    //console.log(router);
-    //res.sendFile(path.join(__dirname, '/views/index.ejs'));
-    res.render('index');
-});
-
 
 router.post('/bases/nasa',  async (req, res) => {
     const datanasa = new Datanasa(req.body);
@@ -19,11 +26,7 @@ router.post('/bases/nasa',  async (req, res) => {
     //console.log(process.env.PORT);
     socket.emit('newData',datanasa.vlr);
 });
-
-module.exports = router;
-
-
-/*
+------------------------------------------------
 router.get('/estacion', (req, res) => {
     res.render('estacion');
 });

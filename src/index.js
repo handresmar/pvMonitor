@@ -1,7 +1,7 @@
 const express = require('express'); //gestor de servidor
 const path = require('path'); //gestor de rutas
 const exphbs = require('express-handlebars'); //gestor de plantillas
-const methodOverride = require('method-override'); 
+const methodOverride = require('method-override'); //Permite usar PUT y DELETE en HTTP
 //console.log('Server running');
 
 //initialization
@@ -37,25 +37,33 @@ const server = app.listen(app.get('port'), () =>{
     console.log('server on port', app.get('port'));
 });
 
+
+rutine = require('./routines');// rutinas del sistemas (obtener datos de las apis, gestionar la acción de los sockets, etc)
+
 //webSockets
 const SocketIO =require('socket.io');
 const io = SocketIO.listen(server);
-require('./routes/sockets')(io);
+rutine.sockets(io);
 
-// node-cron ('*sec *min *hour *dayMonth *month *dayWeek')
-rutine = require('./routines');
+// node-cron ('*sec *min *hour *dayMonth *month *dayWeek') //gestor de tareas programadas por calendario
+
 const cron = require('node-cron');
 
-cron.schedule('*/15 * * * *',() =>{
-    rutine.weather();    
+cron.schedule('*/12 * * * *',() =>{
+    rutine.weather(io);    
 });
-/*
-let t=0;
-cron.schedule('* /5 * * * * *',() =>{
-    t=t+5;
-    console.log('cinco');
-    if(t==15){console.log('quince')};
-    if(t==15){t=0}
-});
-*/
+
+
+
+
+
+//let t=0;
+//cron.schedule('*/5 * * * * *',() =>{
+    //t=t+5;
+    //console.log('update');
+    //io.emit('update',12);
+    //if(t==15){console.log('quince')};
+    //if(t==15){t=0}
+//});
+
 

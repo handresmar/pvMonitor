@@ -1,6 +1,6 @@
 const DataWeather = require('../models/oweather');
 const Datanasa = require('../models/nasa');
-
+ /* ---------------- sockets ----------------------*/ 
 module.exports = function(io){
     io.on('connection', async (socket) => {
         console.log('new connection', socket.id);
