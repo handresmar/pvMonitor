@@ -18,10 +18,13 @@ module.exports.sockets=(io)=>{
 /*  ---------------- Open Weather API ----------------*/
 
 module.exports.weather=(io)=>{
+  const proxyUrl= "http://proxy4.unal.edu.co:8080";
   const dir = 'https://api.openweathermap.org/data/2.5/weather';
   const parametros = {APPID: '224bf9e7ed9c7b7e1a84156ddd4783b8', id:3688689, units:'metric' };
 
-  request({url:dir, qs:parametros}, async function(err, res, body){
+  const proxiedRequest=request.defaults({'proxy':proxyUrl});
+
+  proxiedRequest({url:dir, qs:parametros}, async function(err, res, body){
     if(err) { console.log(err); return; }
     console.log("OpenWeather: " + res.statusCode);
     let datos = JSON.parse(body);
