@@ -53,6 +53,10 @@ cron.schedule('*/12 * * * *',() =>{
     rutine.weather(io);    
 });
 
+cron.schedule('*/6 * * * *',() =>{
+    rutine.plantaLabe(io);    
+});
+
 
 
 

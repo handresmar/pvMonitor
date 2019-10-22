@@ -1,8 +1,10 @@
 const request = require('request'); //request para uso en apis
+const cheerio = require('cheerio'); // obtener datos de documentos html
 
  /* Variables de bases de datos ----------------------*/ 
 const DataWeather = require('./models/oweather');
-const Datanasa = require('./models/oweather');
+const Datanasa = require('./models/nasa');
+const PlantaLabe = require('./models/plantaLabe');
 
 /*  ---------------- WebSockets ----------------*/
 
@@ -18,7 +20,7 @@ module.exports.sockets=(io)=>{
 /*  ---------------- Open Weather API ----------------*/
 
 module.exports.weather=(io)=>{
-  const proxyUrl= "http://proxy4.unal.edu.co:8080";
+  const proxyUrl= "http://proxy4.unal.edu.co:8080"; //proxy universidad
   const dir = 'https://api.openweathermap.org/data/2.5/weather';
   const parametros = {APPID: '224bf9e7ed9c7b7e1a84156ddd4783b8', id:3688689, units:'metric' };
 
@@ -38,6 +40,11 @@ module.exports.weather=(io)=>{
 };
 
 
+/*  ---------------- Obtener datos de ECU planta LABE ----------------*/
+
+module.exports.plantaLabe=(io)=>{
+  console.log('Nuevo dato planta');
+}
 
 /*
 ------------------------------------------------------------------------------------
