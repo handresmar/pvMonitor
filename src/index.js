@@ -49,7 +49,7 @@ rutine.sockets(io);
 
 const cron = require('node-cron');
 
-cron.schedule('*/12 * * * *',() =>{
+cron.schedule('*/12 * * * * *',() =>{
     rutine.weather(io);    
 });
 
