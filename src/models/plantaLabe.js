@@ -32,6 +32,168 @@ const plntLabeSchema= new Schema({
                 }
             ]
         },
+        {
+            ID: String,
+            frec: Number,
+            temp: Number,
+            canales:[
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                }
+            ]
+        },
+        {
+            ID: String,
+            frec: Number,
+            temp: Number,
+            canales:[
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                }
+            ]
+        },
+        {
+            ID: String,
+            frec: Number,
+            temp: Number,
+            canales:[
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                }
+            ]
+        },
+        {
+            ID: String,
+            frec: Number,
+            temp: Number,
+            canales:[
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                }
+            ]
+        },
+        {
+            ID: String,
+            frec: Number,
+            temp: Number,
+            canales:[
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                }
+            ]
+        },
+        {
+            ID: String,
+            frec: Number,
+            temp: Number,
+            canales:[
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                },
+                {
+                    ID: String,
+                    pot: Number,
+                    volt: Number
+                }
+            ]
+        }
     ]
 });
 
