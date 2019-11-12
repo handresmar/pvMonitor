@@ -8,6 +8,19 @@ router.get('/', (req, res) => {
     //console.log(router);
     //res.sendFile(path.join(__dirname, '/views/index.ejs'));
 });
+router.get('/openweather', (req, res) => {
+
+    res.render('openweather');
+    //console.log(router);
+    //res.sendFile(path.join(__dirname, '/views/index.ejs'));
+});
+router.get('/plntLabe', (req, res) => {
+
+    res.render('plntLabe');
+    //console.log(router);
+    //res.sendFile(path.join(__dirname, '/views/index.ejs'));
+});
+
 
 
 module.exports = router;

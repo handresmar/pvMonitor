@@ -54,11 +54,8 @@ cron.schedule('*/12 * * * *',() =>{
 });
 
 cron.schedule('*/6 * * * *',() =>{
-    rutine.plantaLabe(io);    
+    //rutine.plantaLabe(io);    
 });
-
-
-
 
 
 //let t=0;

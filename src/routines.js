@@ -21,7 +21,7 @@ module.exports.sockets=(io)=>{
 /*  ---------------- Open Weather API ----------------*/
 
 module.exports.weather=(io)=>{
-  const proxyUrl= "http://proxy4.unal.edu.co:8080"; //proxy universidad
+  const proxyUrl= "";//"http://proxy4.unal.edu.co:8080"; //proxy universidad
   const dir = 'https://api.openweathermap.org/data/2.5/weather';
   const parametros = {APPID: '224bf9e7ed9c7b7e1a84156ddd4783b8', id:3688689, units:'metric' };
 
