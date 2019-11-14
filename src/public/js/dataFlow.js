@@ -1,21 +1,19 @@
 const socket = io();
+/*  ---------------- Variables Open Weather ----------------*/
 
-let irr = document.getElementById('irr-val');
+let opWeaTemp=document.getElementById('opWeaTemp');
+let opWeaHum=document.getElementById('opWeaHum');
+let opWeaPres=document.getElementById('opWeaPres');
 
-let weaTemp=document.getElementById('weaTemp');
-let weaHum=document.getElementById('weaHum');
-let weaPres=document.getElementById('weaPres');
-let weaDate=document.getElementById('weaDate');
-
-let canvas = document.getElementById('canvas').getContext('2d');
+let opWeaCanvas = document.getElementById('opWeaChart').getContext('2d');
 
 //variables internas
-var temps=[];
-var hum=[];
-var date=[];
+let temps=[];
+let hum=[];
+let date=[];
 
-/*  ---------------- chatjs ----------------*/
-let myChart = new Chart(canvas,{
+/*  ---------------- Open Weather ----------------*/
+let myChart = new Chart(opWeaCanvas,{
     type:'line',
     data:{
         labels:[],
@@ -42,20 +40,36 @@ let myChart = new Chart(canvas,{
     },
 
     options:{
+        maintainAspectRatio: false,
+        layout: {
+        padding: {
+            left: 10,
+            right: 25,
+            top: 25,
+            bottom: 0
+        }
+        },
         scales:{
-            yAxes:[{
-                id: 'temp',
-                type: 'linear',
-                position: 'left',
-                }, {
-                id: 'hum',
-                type: 'linear',
-                position: 'right',
-                ticks: {}
-            }]
+            xAxes:[{
+                ticks:{
+                    display:false               
+                }
+            }], 
+            yAxes:[
+                {
+                    id: 'temp',
+                    type: 'linear',
+                    position: 'left',
+                }, 
+                {
+                    id: 'hum',
+                    type: 'linear',
+                    position: 'right',
+                    ticks: {}
+                }]
         },
         title:{
-            display: true,
+            display: false,
             text: 'Temperatura y humedad Bogotá'
         },
         legend:{
@@ -67,12 +81,12 @@ let myChart = new Chart(canvas,{
 
   /* ---------------- sockets ----------------------*/ 
 
-socket.on('onConnect', function(data){
-    console.log(data);
-    setWeather(data);
+  socket.on('onConnect', function(daOpWea, daPltLabe){
+    console.log(daOpWea);
+    setWeather(daOpWea);
 
 }); 
-socket.on('update', function(data){
+socket.on('updtOpWea', function(data){
     console.log(data);
     updateWeather(data);
 });
@@ -87,6 +101,11 @@ const setWeather=(data)=>{
         temps.push(data[i].temp);
         hum.push(data[i].humidity);
         date.push(new Date(data[i].date).toLocaleString('es-CO'));
+        if(i==0){
+            opWeaTemp.innerHTML=data[i].temp;
+            opWeaPres.innerHTML=data[i].pressure;
+            opWeaHum.innerHTML=data[i].humidity;
+        }
     };
     console.log(temps);
     updatechart();
@@ -100,6 +119,10 @@ const updateWeather=(data)=>{
     hum.push(data.humidity);
     date=date.slice(1);
     date.push(new Date(data.date).toLocaleString('es-CO'));
+
+    opWeaTemp.innerHTML=data.temp;
+    opWeaPres.innerHTML=data.pressure;
+    opWeaHum.innerHTML=data.humidity;
     updatechart();
     return;
 }
@@ -110,9 +133,6 @@ const updatechart=()=>{
     myChart.update();
     return;
 }
-
-
-
 
     /*temp=data[0].temp.toString()+',0';
     irr.innerHTML=temp;
