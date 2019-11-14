@@ -11,8 +11,8 @@ const PlantaLabe = require('./models/plantaLabe');
 module.exports.sockets=(io)=>{
   io.on('connection', async (socket) => {
       console.log('new connection', socket.id);
-      let dataWeather =  await DataWeather.find().sort({ _id: -1, }).limit(20);
-      let plantaLabe =  await PlantaLabe.find().sort({ _id: -1, }).limit(20);
+      let dataWeather =  await DataWeather.find().sort({ _id: -1, }).limit(30);
+      let plantaLabe =  await PlantaLabe.find().sort({ _id: -1, }).limit(50);
       //console.log(data);
       socket.emit('onConnect',dataWeather, plantaLabe);
   });
