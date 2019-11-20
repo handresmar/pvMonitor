@@ -36,7 +36,7 @@ module.exports.weather=(io)=>{
     let dataweather = new DataWeather(weatdat);
     await dataweather.save();
 
-    io.emit('update',dataweather); //Emitir el dato actualizado al socket cliente    
+    io.emit('updOpWe',dataweather); //Emitir el dato actualizado al socket cliente    
   });
 };
 
@@ -49,6 +49,7 @@ module.exports.plantaLabe=(io)=>{
   const urlecu = 'http://10.42.5.108/index.php/realtimedata';
   let planta={};
 
+  
   request(urlecu, async (err, res, body)=>{
     if (err) {  console.log('error: ', err);}
     //console.log('Body: ',body);
@@ -56,9 +57,9 @@ module.exports.plantaLabe=(io)=>{
     planta=getData($);
     let plantalabe = new PlantaLabe(planta);
     await plantalabe.save();
-    console.log(planta);
-    console.log(planta.inversores[0]);
+    io.emit('updtPltlabe',dataweather);
   })
+  console.log('dato transmitido');
   
 }
 
