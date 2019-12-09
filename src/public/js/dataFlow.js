@@ -82,14 +82,13 @@ let myChart = new Chart(opWeaCanvas,{
   /* ---------------- sockets ----------------------*/ 
 
   socket.on('onConnect', function(daOpWea, daPltLabe){
-    /*console.log(daOpWea);*/
+    console.log(daOpWea);
     setWeather(daOpWea);
-    
+
 }); 
 socket.on('updOpWe', function(data){
-    /*console.log(data);*/
+    console.log(data);
     updateWeather(data);
-    console.log('Dato actualizado');
 });
 
 
@@ -108,12 +107,13 @@ const setWeather=(data)=>{
             opWeaHum.innerHTML=data[i].humidity;
         }
     };
+    
     console.log(temps);
     updatechart();
     return;
 }
 const updateWeather=(data)=>{
-    console.log('updOpWe',data);
+    console.log('update',data);
     temps=temps.slice(1);
     temps.push(data.temp);
     hum=hum.slice(1);
