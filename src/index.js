@@ -1,15 +1,15 @@
 const express = require('express'); //gestor de servidor
 const path = require('path'); //gestor de rutas
-const exphbs = require('express-handlebars'); //gestor de plantillas
+const exphbs = require('express-handlebars'); //gestor de plantillas para el código html
 const methodOverride = require('method-override'); //Permite usar PUT y DELETE en HTTP
 //console.log('Server running');
 
-//initialization
+//Inicialización
 const app = express(); //servidor
 require('./database'); //base de datos
 
 
-//settings
+//settings Configuración
 app.set('port',process.env.PORT || 3000);
 app.set('views',path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 
-//routes
+//routes gestor de rutas
 app.use(require('./routes/index'));
 
 
@@ -40,7 +40,7 @@ const server = app.listen(app.get('port'), () =>{
 
 rutine = require('./routines');// rutinas del sistemas (obtener datos de las apis, gestionar la acción de los sockets, etc)
 
-//webSockets
+//webSockets 
 const SocketIO =require('socket.io');
 const io = SocketIO.listen(server);
 rutine.sockets(io);
